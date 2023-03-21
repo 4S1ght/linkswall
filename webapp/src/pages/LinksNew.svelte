@@ -1,0 +1,1 @@
+<!-- Shows all posts/links starting from the newest -->
