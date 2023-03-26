@@ -1,1 +1,0 @@
-<!-- Navigation bar global to all pages -->
