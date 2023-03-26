@@ -1,1 +1,0 @@
-<!-- Shows the most upvoted posts/links -->

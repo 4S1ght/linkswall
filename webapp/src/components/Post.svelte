@@ -1,1 +1,0 @@
-<!-- A single post inside a feed (Feed.svelte) -->
