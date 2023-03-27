@@ -36,8 +36,8 @@ export default class Links {
     public static async downvote(id: number) {
         const links: Link[] = JSON.parse(await fs.readFile(this.url, 'utf-8'))
         const link = links.find(x => x.id === id)
-        if (link) { 
-            link.votes > 0 && link.votes--
+        if (link && link.votes > 0) { 
+            link.votes--
             await fs.writeFile(this.url, JSON.stringify(links, null, 4))
             return true 
         }
