@@ -37,7 +37,7 @@ export default class Links {
         const links: Link[] = JSON.parse(await fs.readFile(this.url, 'utf-8'))
         const link = links.find(x => x.id === id)
         if (link) { 
-            link.votes < 0 && link.votes--
+            link.votes > 0 && link.votes--
             await fs.writeFile(this.url, JSON.stringify(links, null, 4))
             return true 
         }
