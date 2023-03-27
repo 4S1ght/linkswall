@@ -1,0 +1,20 @@
+[
+    {
+        "link": "https://google.com",
+        "title": "Google market share down",
+        "description": "Once upon a time at google...",
+        "votes": 13
+    },
+    {
+        "link": "https://google.com",
+        "title": "Google loses to bing",
+        "description": "Once upon a time at google...",
+        "votes": 132
+    },
+    {
+        "link": "https://github.com/4S1ght/soybean",
+        "title": "Soybean.",
+        "description": "Automation tool, etc...",
+        "votes": 33
+    }
+]
