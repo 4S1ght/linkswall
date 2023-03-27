@@ -4,14 +4,29 @@
     export let title: string
     export let description: string
     export let votes: number
+    export let id: number
+
+    async function upvote() {
+        const req = await fetch(`/api/vote/${id}/up`)
+        if (req.status === 200) {
+            votes++
+        }
+    }
+
+    async function downvote() {
+        const req = await fetch(`/api/vote/${id}/down`)
+        if (req.status === 200) {
+            votes--
+        }
+    }
 
 </script>
 
 <div class="post">
     <div class="votes">
-        <button class="up"></button>
+        <button class="up" on:click={upvote}></button>
         <p class="count">{votes}</p>
-        <button class="down"></button>
+        <button class="down" on:click={downvote}></button>
     </div>
     <div class="content">
         <a class="title" href={link}>
