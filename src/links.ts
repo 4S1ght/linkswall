@@ -11,6 +11,7 @@ export interface Link {
     description: string
     votes: number
     id: number
+    timestamp: number
 }
 
 export default class Links {
