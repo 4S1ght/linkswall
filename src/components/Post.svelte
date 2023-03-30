@@ -59,6 +59,10 @@
         grid-template-columns: 60px 1fr;
         gap: 30px;
 
+        &:last-child {
+            border-bottom: none;
+        }
+
         .votes {
             display: flex;
             align-items: center;

@@ -1,7 +1,6 @@
 
-import { error, redirect } from '@sveltejs/kit';
-import Links from '../../../links';
-import config from '../../../config.json';
+import { error, redirect } from '@sveltejs/kit'
+import Links from '../../../links'
 import type { RequestHandler } from './$types'
 
 export const POST: RequestHandler = async (e) => {
@@ -14,10 +13,8 @@ export const POST: RequestHandler = async (e) => {
 
     if (!title || !link || !desc) throw error(400)
 
-    await Links.add(link, title, desc)
-
-    e.setHeaders({ Location: "/newlinks" })
+    const id = await Links.add(link, title, desc)
     
-    return new Response()
+    throw redirect(302, `/link/${id}`)
     
 }
