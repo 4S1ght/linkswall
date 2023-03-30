@@ -23,6 +23,13 @@ export default class Links {
         return links
     }
 
+    public static async add(link: string, title: string, description: string) {
+        const links: Link[] = JSON.parse(await fs.readFile(this.url, 'utf-8'))
+        const id = links.reduce((acc, curr) => acc.id > curr.id ? acc : curr).id + 1
+        const newLink: Link = { id, link, title, description, votes: 0, timestamp: Date.now() }
+        await fs.writeFile(this.url, JSON.stringify([...links, newLink], null, 4))
+    }
+
     public static async upvote(id: number) {
         const links: Link[] = JSON.parse(await fs.readFile(this.url, 'utf-8'))
         const link = links.find(x => x.id === id)
