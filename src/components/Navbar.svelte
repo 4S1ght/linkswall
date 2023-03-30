@@ -7,6 +7,9 @@
         <a href="/">Home</a>
         <a href="/links">Trending links</a>
         <a href="/newlinks">New links</a>
+            <div class="left">
+                <a href="/createlink">New link</a>
+            </div>
     </section>
 </nav>
 
@@ -30,6 +33,7 @@
             max-width: 1400px;
             width: 100%;
             margin: 0 30px;
+            position: relative;
 
             a {
                 margin: 0 25px 0 0;
@@ -39,6 +43,15 @@
 
                 &:hover {
                     text-decoration: underline;
+                }
+            }
+
+            .left {
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                a {
+                    margin: 0 0 0 25px;
                 }
             }
         }
