@@ -1,20 +1,24 @@
 <script lang="ts">
 
-    import Navbar from '../../components/Navbar.svelte'
-    import Feed from '../../components/Feed.svelte'
-    import Post from '../../components/Post.svelte'
+    import Navbar from '../components/Navbar.svelte'
+    import Feed from '../components/Feed.svelte'
+    import Post from '../components/Post.svelte'
 
-    import type { Link } from '../../links';
+    import LinksAPI from '../lib/links_api'
 
-    async function redirect(e: SubmitEvent) {
+    function createlink(e: SubmitEvent) {
         e.preventDefault()
+        const formData = new FormData(e.target as HTMLFormElement)
+        const values = Object.fromEntries(formData) as Record<string, string>
+        const id = LinksAPI.getInstance().add(values.link, values.title, values.description)
+        window.location.hash = `/link/${id}`    
     }
 
 </script>
 
 <Feed>
 
-    <form method="POST" action="/api/createlink">
+    <form method="POST" action="/api/createlink" on:submit={createlink}>
 
         <label for="title">Title</label>
         <input type="text" name="title" id="title" required>
