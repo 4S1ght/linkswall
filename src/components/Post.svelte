@@ -1,5 +1,7 @@
 <script lang="ts">
 
+    import LinksAPI from "../lib/links_api";
+
     export let link: string
     export let title: string
     export let description: string
@@ -7,15 +9,13 @@
     export let id: number
 
     async function upvote() {
-        const req = await fetch(`/api/vote/${id}/up`)
-        if (req.status === 200) {
+        if (LinksAPI.getInstance().upvote(Number(id))) {
             votes++
         }
     }
 
     async function downvote() {
-        const req = await fetch(`/api/vote/${id}/down`)
-        if (req.status === 200) {
+        if (LinksAPI.getInstance().downvote(Number(id))) {
             votes--
         }
     }

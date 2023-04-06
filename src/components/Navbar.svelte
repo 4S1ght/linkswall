@@ -4,11 +4,11 @@
 
 <nav>
     <section class="body">
-        <a href="/">Home</a>
-        <a href="/links">Trending links</a>
-        <a href="/newlinks">New links</a>
+        <a href="#/">Home</a>
+        <a href="#/trending">Trending links</a>
+        <a href="#/newlinks">New links</a>
             <div class="left">
-                <a href="/createlink">New link</a>
+                <a href="#/createlink">New link</a>
             </div>
     </section>
 </nav>

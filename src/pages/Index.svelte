@@ -4,13 +4,13 @@
     import Feed from '../components/Feed.svelte'
     import Post from '../components/Post.svelte'
 
-    import type { Link } from '../links';
+    import LinksAPI from '../lib/links_api'
 
-    async function getLinks() {
-        const req = await fetch('/api/links')
-        return await req.json() as Link[]
+    function getLinks() {
+        return LinksAPI.getInstance().links()
     }
 
+  
 </script>
 
 <Feed>
