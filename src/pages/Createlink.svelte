@@ -4,13 +4,13 @@
     import Feed from '../components/Feed.svelte'
     import Post from '../components/Post.svelte'
 
-    import LinksAPI from '../lib/links_api'
+    import LinksAPI from '../lib/links_api_web'
 
-    function createlink(e: SubmitEvent) {
+    async function createlink(e: SubmitEvent) {
         e.preventDefault()
         const formData = new FormData(e.target as HTMLFormElement)
         const values = Object.fromEntries(formData) as Record<string, string>
-        const id = LinksAPI.getInstance().add(values.link, values.title, values.description)
+        const id = await LinksAPI.add(values.link, values.title, values.description)
         window.location.hash = `/link/${id}`    
     }
 

@@ -4,12 +4,12 @@
     import Feed from '../components/Feed.svelte'
     import Post from '../components/Post.svelte'
 
-    import LinksAPI from '../lib/links_api'
+    import LinksAPI from '../lib/links_api_web'
 
     export let id: string
 
     function getLink(id: string) {
-        return LinksAPI.getInstance().get(Number(id))
+        return LinksAPI.get(Number(id))
     }
 
 </script>

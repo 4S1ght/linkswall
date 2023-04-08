@@ -1,6 +1,6 @@
 <script lang="ts">
 
-    import LinksAPI from "../lib/links_api";
+    import LinksAPI from "../lib/links_api_web";
 
     export let link: string
     export let title: string
@@ -8,25 +8,36 @@
     export let votes: number
     export let id: number
 
-    async function upvote() {
-        if (LinksAPI.getInstance().upvote(Number(id))) {
-            votes++
-        }
+    function shake(target: HTMLElement) {
+        target.parentElement.animate([
+            { transform: "translateX(-25%) rotate(-30deg)" },
+            { transform: "translateX(20%) rotate(20deg)" },
+            { transform: "translateX(-20%) rotate(-20deg)" },
+            { transform: "translateX(10%) rotate(10deg)" },
+            { transform: "translateX(0%) rotate(0deg)" }
+        ], {
+            duration: 450,
+            iterations: 1,
+        })
     }
 
-    async function downvote() {
-        if (LinksAPI.getInstance().downvote(Number(id))) {
-            votes--
-        }
+    async function upvote(e: MouseEvent) {
+        if (await LinksAPI.upvote(Number(id))) votes++
+        else shake(e.target as HTMLElement)
+    }
+
+    async function downvote(e: MouseEvent) {
+        if (await LinksAPI.downvote(Number(id))) votes--
+        else shake(e.target as HTMLElement)
     }
 
 </script>
 
 <div class="post">
     <div class="votes">
-        <button class="up" on:click={upvote}></button>
+        <span><button class="up" on:click={upvote}></button></span>
         <p class="count">{votes}</p>
-        <button class="down" on:click={downvote}></button>
+        <span><button class="down" on:click={downvote}></button></span>
     </div>
     <div class="content">
         <a class="title" href={link}>

@@ -1,0 +1,314 @@
+{
+  "uuid": "a2b8ee2f-2d42-4753-85eb-100710dc35d4",
+  "lastMigration": 27,
+  "name": "Mockoon env",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3000,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "9381c35a-f77e-49c5-92cc-30221dd06536",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/links",
+      "responses": [
+        {
+          "uuid": "f72bd047-4f41-4cc5-9db5-9309e0e5e472",
+          "body": "[\r\n  {{#repeat 20}}\r\n  {\r\n    \"id\": {{@index}},\r\n    \"link\": \"https://google.com\",\r\n    \"title\": \"{{faker 'lorem.sentence'}}\",\r\n    \"description\": \"{{lorem 50}}\",\r\n    \"votes\": {{int 5 49}},\r\n    \"timestamp\": {{int 1678301110969 1680893110969}}\r\n  },\r\n  {{/repeat}}\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "289b6d49-6b60-457c-8b66-581befd09c56",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/newlinks",
+      "responses": [
+        {
+          "uuid": "48219acb-f7ea-45c0-ab05-d4a0c2f31605",
+          "body": "[\r\n  {{#repeat 20}}\r\n  {\r\n    \"id\": {{@index}},\r\n    \"link\": \"https://google.com\",\r\n    \"title\": \"{{faker 'lorem.sentence'}}\",\r\n    \"description\": \"{{lorem 50}}\",\r\n    \"votes\": {{int 0 4}},\r\n    \"timestamp\": {{int 1678301110969 1680893110969}}\r\n  },\r\n  {{/repeat}}\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "3e4ac539-dbcb-4aec-8c30-6a630c4048f2",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/trending",
+      "responses": [
+        {
+          "uuid": "74a4ea09-0b73-493f-aa7d-c922949817d6",
+          "body": "[\r\n  {{#repeat 20}}\r\n  {\r\n    \"id\": {{@index}},\r\n    \"link\": \"https://google.com\",\r\n    \"title\": \"{{faker 'lorem.sentence'}}\",\r\n    \"description\": \"{{lorem 50}}\",\r\n    \"votes\": {{int 50 300}},\r\n    \"timestamp\": {{int 1678301110969 1680893110969}}\r\n  },\r\n  {{/repeat}}\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "0b60d7a4-0546-4f3d-8cee-f312220e1122",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/link/:id",
+      "responses": [
+        {
+          "uuid": "430de723-9847-40f7-8266-a4e0891e5684",
+          "body": "{\r\n  \"id\": {{urlParam 'id'}},\r\n  \"link\": \"https://google.com\",\r\n  \"title\": \"{{faker 'lorem.sentence'}}\",\r\n  \"description\": \"{{lorem 50}}\",\r\n  \"votes\": {{int 0 300}},\r\n  \"timestamp\": {{int 1678301110969 1680893110969}}\r\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "c720e67a-dc46-4446-9540-a93a525a869e",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/createlink",
+      "responses": [
+        {
+          "uuid": "7d9b5ffc-019b-4842-8f0c-e766db324b90",
+          "body": "{\n  \"id\": {{int 0 100000}}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "8bd31854-0d33-4435-855b-e36c19f20547",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/upvote/:id",
+      "responses": [
+        {
+          "uuid": "3906c560-394d-429f-8eb2-d5bf20a9b6d3",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "633ac3e3-3e00-4bf8-8844-42bb4a382451",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": "RANDOM"
+    },
+    {
+      "uuid": "f57ade44-49ce-4817-b568-1f941847f8d2",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/downvote/:id",
+      "responses": [
+        {
+          "uuid": "38128233-9c4e-4c6a-aed8-ce83aa9885ec",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "eea83c80-626d-41d0-9d72-3dad7df63f8f",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": "RANDOM"
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "9381c35a-f77e-49c5-92cc-30221dd06536"
+    },
+    {
+      "type": "route",
+      "uuid": "289b6d49-6b60-457c-8b66-581befd09c56"
+    },
+    {
+      "type": "route",
+      "uuid": "3e4ac539-dbcb-4aec-8c30-6a630c4048f2"
+    },
+    {
+      "type": "route",
+      "uuid": "0b60d7a4-0546-4f3d-8cee-f312220e1122"
+    },
+    {
+      "type": "route",
+      "uuid": "c720e67a-dc46-4446-9540-a93a525a869e"
+    },
+    {
+      "type": "route",
+      "uuid": "8bd31854-0d33-4435-855b-e36c19f20547"
+    },
+    {
+      "type": "route",
+      "uuid": "f57ade44-49ce-4817-b568-1f941847f8d2"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "localhost:5173",
+  "proxyRemovePrefix": true,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [],
+  "proxyResHeaders": [],
+  "data": [
+    {
+      "uuid": "406f7785-d1e5-4852-9b1b-bb9c7fc15991",
+      "id": "hlvb",
+      "name": "links",
+      "documentation": "",
+      "value": "[\r\n  {{#repeat 50}}\r\n  {\r\n    \"id\": {{@index}},\r\n    \"link\": \"https://google.com\",\r\n    \"title\": \"{{faker 'lorem.sentence'}}\",\r\n    \"description\": \"{{lorem 50}}\",\r\n    \"votes\": {{int 0 70}},\r\n    \"timestamp\": {{int 1678301110969 1680893110969}}\r\n  },\r\n  {{/repeat}}\r\n]"
+    }
+  ]
+}
