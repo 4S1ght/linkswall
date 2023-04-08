@@ -4,10 +4,10 @@
     import Feed from '../components/Feed.svelte'
     import Post from '../components/Post.svelte'
 
-    import LinksAPI from '../lib/links_api'
+    import LinksAPI from '../lib/links_api_web'
 
     function getLinks() {
-        return LinksAPI.getInstance().newlinks()
+        return LinksAPI.newlinks()
     }
 
 </script>

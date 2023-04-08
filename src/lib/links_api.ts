@@ -20,6 +20,7 @@ export default class LinksAPI {
         if (!localStorage.getItem('links')) {
             localStorage.setItem('links', JSON.stringify(defaultLinksContent))
         }
+        LinksAPI.instance = this
     }
 
     public List() {
